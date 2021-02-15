@@ -1,0 +1,5 @@
+-change name of saver class to something about getting data
+-add websocket client to loop in way that doesn't pass it loop
+-in Manger.py use something other than sleep to hand control back to concurrency manager
+-add dash with browser support for real time graphing
+-create a loger for data getter and ghk manager
