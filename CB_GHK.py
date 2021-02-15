@@ -18,9 +18,9 @@ class CB_GHK:
         
     def getSignal(self): 
         if self.dx > 0:
-            signal = 'buy'
+            signal = 'long'
         else:
-            signal = 'sell'
+            signal = 'short'
         return signal
         
     def run(self, z , lastDataTime: datetime.datetime):
