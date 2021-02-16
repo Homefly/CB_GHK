@@ -1,11 +1,14 @@
-import copra
+#1st Pary
+from datetime import datetime
+
+#2nd Party
 from filterpy.gh import GHKFilter
-import datetime
+import copra
 from dateutil.relativedelta import relativedelta
+from dateutil import parser
 
-
-#wait for new data
 class CB_GHK:
+    #data sampling rates
     PREDICTIONPERIOD = relativedelta(minutes = 1)
     
     def __init__(self, x, dx, ddx, dt, g, h, k):
@@ -23,7 +26,13 @@ class CB_GHK:
             signal = 'short'
         return signal
         
-    def run(self, z , lastDataTime: datetime.datetime):
+    def run(self, z , lastDataTime):
+        #if not right type converts to correct type
+        if not isinstance(z, float):
+            z = float(z)
+        if not isinstance(lastDataTime, datetime):   
+            lastDataTime = parser.parse(lastDataTime)
+        
         #only process data one minute apart else return previous data
         print('new data: ' + str(lastDataTime))
         if (self.lastPredTime == None) or lastDataTime  >\
