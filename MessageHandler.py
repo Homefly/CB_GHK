@@ -33,7 +33,7 @@ class MessageHandler(Client):
 
                 #No new data return control
                 #TODO: change this to just return control back to controller not sleep
-                await asyncio.sleep(0.01) 
+                await asyncio.sleep(0) 
             else:
                 self.lastNewMessageTime = parser.parse(self.lTick['time'])
                 break

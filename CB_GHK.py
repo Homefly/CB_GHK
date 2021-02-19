@@ -7,7 +7,7 @@ import copra
 from dateutil.relativedelta import relativedelta
 from dateutil import parser
 
-class CB_GHK:
+class CB_GHK(GHKFilter):
     #data sampling rates
     PREDICTIONPERIOD = relativedelta(minutes = 1)
     
