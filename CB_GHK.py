@@ -1,7 +1,7 @@
-#1st Pary
+#Built in
 from datetime import datetime
 
-#2nd Party
+#3nd Party
 from filterpy.gh import GHKFilter
 import copra
 from dateutil.relativedelta import relativedelta

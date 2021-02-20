@@ -10,7 +10,7 @@ from copra.websocket import Channel, Client
 
 class MessageHandler(Client):
     def __init__(self, loop, newMessageFut = None):
-        channel = Channel('ticker', 'LTC-USD')
+        channel = Channel('ticker', 'BTC-USD')
         super().__init__(loop, channel)
         self.lTick = None
         self.setProtocolOptions(autoPingInterval= 1, autoPingTimeout = 2)
@@ -29,6 +29,7 @@ class MessageHandler(Client):
         #checks for a new message every milisecond
         while(True):
             if (self.lTick == None) or \
+            not ('time' in self.lTick) or\
                 (self.lastNewMessageTime == parser.parse(self.lTick['time'])):
 
                 #No new data return control
