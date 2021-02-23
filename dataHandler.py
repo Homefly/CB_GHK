@@ -30,7 +30,7 @@ class DataHandler:
         fileName = f'{today}_{algoName}.csv'
         pathName = path + fileName
         with open(pathName, 'a') as f:
-            self.marketData.to_csv(f, header=f.tell()==0)
+            self.marketData.to_csv(f, header=f.tell()==0) #TODO: change to add only the new portion of self.marketData
     
     @property
     def getData(self):
