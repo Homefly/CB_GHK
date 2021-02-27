@@ -53,13 +53,13 @@ class DataHandler:
             async with async_open(self.pathName, "a+") as f:
                 writer = csv.DictWriter(f, fieldnames=dataToSave.keys())
                 if not file_exists:
-                    writer.writeheader()
+                await writer.writeheader()
                 await writer.writerow(dataToSave)
         else:
             async with async_open(self.pathName, "w") as f:
                 writer = csv.DictWriter(f, fieldnames=dataToSave.keys())
                 if not file_exists:
-                    writer.writeheader()
+                await writer.writeheader()
                 await writer.writerow(dataToSave)
 
     @property
