@@ -32,12 +32,16 @@ class ActionTaker:
             #truncate for min tick size        
             usdSize = float(f'{usd_available:.8f}')
             pprint(usdSize)
-
-            # Place a market order
-            try:
-                order = await client.market_order('buy', 'BTC-USD', size=usdSize)
-            except APIRequestError as e:
-                print(e)
+            
+            if usdSize > 1.: #TODO: change this to min tradable size
+                # Place a market order
+                try:
+                    order = await client.market_order('buy', 'BTC-USD', size=usdSize)
+                except APIRequestError as e:
+                    print(e)
+            else:
+                print('not enough usd to trade')
+                #TODO: make this a warning or error
             
         return
     
@@ -55,12 +59,16 @@ class ActionTaker:
             #truncate for min tick size
             btcSize = float(f'{btc_available:.8f}')
             pprint(btcSize)
-
-            # Place a market order
-            try:
-                order = await client.market_order('sell', 'BTC-USD', size=btcSize)
-            except APIRequestError as e:
-                print(e)
+            
+            if btcSize > 1.e-6: #TODO: change this to min tradable size
+                # Place a market order
+                try:
+                    order = await client.market_order('sell', 'BTC-USD', size=btcSize)
+                except APIRequestError as e:
+                    print(e)
+            else:
+                print('not enough usd to trade')
+                #TODO: make this a warning or error
         return
     
     async def run(self, policy):

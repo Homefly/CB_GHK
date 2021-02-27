@@ -39,7 +39,7 @@ async def managerLogic():
         #rtPlot.updatePlot(history) #TODO: make this grab from CSV
         
         #buy or sell
-        #loop.create_task(actionTaker.run(policy))
+        loop.create_task(actionTaker.run(policy))
 
 #Main loop
 loop = asyncio.get_event_loop()
@@ -54,9 +54,8 @@ GHFil = CB_GH(**filParams)
 history = DataHandler()
 mesHand = MessageHandler(loop)
 rtPlot = RTPlot()
-actionTaker = ActionTaker(loop)
 """
-
+actionTaker = ActionTaker(loop)
 history = DataHandler(GHFil.algoName)
 mesHand = MessageHandler(loop, pair)
 #Add manager to the loop
