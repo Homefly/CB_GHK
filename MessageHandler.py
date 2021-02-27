@@ -28,12 +28,11 @@ class MessageHandler(Client):
     async def newMessage(self):
         #checks for a new message every milisecond
         while(True):
-            if (self.lTick == None) or \
+            if (self.lTick == None) or\
             not ('time' in self.lTick) or\
                 (self.lastNewMessageTime == parser.parse(self.lTick['time'])):
 
                 #No new data return control
-                #TODO: change this to just return control back to controller not sleep
                 await asyncio.sleep(0) 
             else:
                 self.lastNewMessageTime = parser.parse(self.lTick['time'])
