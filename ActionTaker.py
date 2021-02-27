@@ -30,13 +30,13 @@ class ActionTaker:
                     pprint(account)
             
             #truncate for min tick size        
-            usdSize = float(f'{usd_available:.8f}')
+            usdSize = float(f'{usd_available:.2f}')
             pprint(usdSize)
             
             if usdSize > 1.: #TODO: change this to min tradable size
                 # Place a market order
                 try:
-                    order = await client.market_order('buy', 'BTC-USD', size=usdSize)
+                    order = await client.market_order('buy', 'BTC-USD', funds=usdSize) #size in btc?
                 except APIRequestError as e:
                     print(e)
             else:
@@ -63,7 +63,7 @@ class ActionTaker:
             if btcSize > 1.e-6: #TODO: change this to min tradable size
                 # Place a market order
                 try:
-                    order = await client.market_order('sell', 'BTC-USD', size=btcSize)
+                    order = await client.market_order('sell', 'BTC-USD', size=btcSize) #size in btc?
                 except APIRequestError as e:
                     print(e)
             else:
