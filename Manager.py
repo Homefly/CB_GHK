@@ -27,9 +27,9 @@ async def managerLogic():
         
         #if new data send it to algo
         predX, predDX, policy, algoType = GHFil.run(mesHand.lTick['price'], mesHand.lTick['time'])
-        pp(mesHand.lTick)
-        pp(f"{predX=} {predDX=}")
-        print(repr(GHFil))
+        #pp(mesHand.lTick)
+        #pp(f"{predX=} {predDX=}")
+        #print(repr(GHFil))
         
         #if new data save data
         loop.create_task(history.saveData(
