@@ -18,10 +18,11 @@ from ActionTaker import ActionTaker
 pair = 'BTC-USD'
 g = .0005
 h = 4.973799150320701e-08
-startDate = '2021-02-25T23:59:00'
+startDate = '2021-02-13T23:59:00'
 
 
 async def managerLogic():
+    GHFilLast = 'None'
     while(True):
         await mesHand.newMessage()
         
@@ -29,7 +30,10 @@ async def managerLogic():
         predX, predDX, policy, algoType = GHFil.run(mesHand.lTick['price'], mesHand.lTick['time'])
         #pp(mesHand.lTick)
         #pp(f"{predX=} {predDX=}")
-        #print(repr(GHFil))
+        if repr(GHFil)!= GHFilLast:
+            print(repr(GHFil))
+            pp(mesHand.lTick['time'])
+            GHFilLast = repr(GHFil)
         
         #if new data save data
         loop.create_task(history.saveData(
@@ -50,6 +54,7 @@ loop = asyncio.get_event_loop()
 GHFil = CB_GH()
 filParams = GHFil.primeFil(pair, startDate, g, h)
 GHFil = CB_GH(**filParams)
+
 """
 history = DataHandler()
 mesHand = MessageHandler(loop)
@@ -58,6 +63,7 @@ rtPlot = RTPlot()
 actionTaker = ActionTaker(loop)
 history = DataHandler(GHFil.algoName)
 mesHand = MessageHandler(loop, pair)
+
 #Add manager to the loop
 loop.create_task(managerLogic())
 
