@@ -66,7 +66,7 @@ class CBData:
         candles.columns = \
             ['time', 'low', 'high', 'open', 'close', 'volume']
         
-        cls.saveData(candles)
+        #cls.saveData(candles)
 
         return candles
     

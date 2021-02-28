@@ -1,6 +1,7 @@
 import asyncio
 import time
 from pprint import pprint
+import math
 
 from copra.rest import APIRequestError, Client
 from dateutil.relativedelta import relativedelta
@@ -17,6 +18,10 @@ class ActionTaker:
         self.lastPolicy = None
         #self.lastPolicyChangeTime = lastPolicyChangeTime
         PolicyChangeLockout = relativedelta(minutes = 5)
+        
+    def round_down(self, n, decimals=0):
+        multiplier = 10 ** decimals
+        return math.floor(n * multiplier) / multiplier
     
     #market buy
     async def buy_BTC(self):
@@ -30,7 +35,7 @@ class ActionTaker:
                     pprint(account)
             
             #truncate for min tick size        
-            usdSize = float(f'{usd_available:.2f}')
+            usdSize = self.round_down(usd_available, 2)
             pprint(usdSize)
             
             if usdSize > 1.: #TODO: change this to min tradable size
@@ -57,7 +62,7 @@ class ActionTaker:
                     pprint(account)
         
             #truncate for min tick size
-            btcSize = float(f'{btc_available:.8f}')
+            btcSize = self.round_down(btc_available, 8)
             pprint(btcSize)
             
             if btcSize > 1.e-6: #TODO: change this to min tradable size
