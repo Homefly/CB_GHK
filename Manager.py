@@ -18,7 +18,7 @@ from ActionTaker import ActionTaker
 pair = 'BTC-USD'
 g = .0005
 h = 4.973799150320701e-08
-startDate = '2021-02-26T23:59:00'
+startDate = '2021-02-13T23:59:00'
 
 
 async def managerLogic(GHFilLast = 'None'):
