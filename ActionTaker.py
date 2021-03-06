@@ -8,9 +8,10 @@ from dateutil.relativedelta import relativedelta
 
 from MessageHandler import MessageHandler
 
-KEY = 'b0a2ecd28e49495776c58b367eec2666'
-SECRET = 'xY+xNtOOek0t3i07pLx+f/lTpgQ0iXaBjv4siVxQTFvRMX8aKZU6K2yeG/nleDpGTm0DBzKfSqvtrwmvV148Rg=='
-PASSPHRASE = 'm1dqqqfuged'
+#Dev Key
+KEY = '494ce9a9b403fea4c83f29698132ccd6'
+SECRET = 'xlb2a8gH5avyYrme+MteiNt84VLXbQzua3VUmbt/vrs/qAY5c72qCeIDRFF6Equ2K80W6KYpXccZuCzT9ePzsw=='
+PASSPHRASE = 's89dfh8hHHsdfe45hs''
 
 class ActionTaker:
     def __init__(self, loop):
