@@ -1,0 +1,9 @@
+Kalman-and-Bayesian-Filters-in-Python
+venv
+AIO_Tutorial
+data/
+tests+prototypes/
+.ipynb_checkpoints/
+.vscode/
+
+*.swp
