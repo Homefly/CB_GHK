@@ -1,18 +1,14 @@
-#Built in
 import asyncio
-import matplotlib.pyplot as plt
-
-#3rd Party
-from dateutil import parser
-from dateutil.relativedelta import relativedelta
 from pprint import pprint as pp
 
-#1st Party
-from MessageHandler import MessageHandler
+import matplotlib.pyplot as plt
+from dateutil import parser
+from dateutil.relativedelta import relativedelta
+
+from ActionTaker import ActionTaker
 from CB_GH import CB_GH
 from DataHandler import DataHandler
-#from RTPlot import RTPlot
-from ActionTaker import ActionTaker
+from MessageHandler import MessageHandler
 
 #params:
 pair = 'BTC-USD'

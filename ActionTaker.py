@@ -1,7 +1,7 @@
 import asyncio
+import math
 import time
 from pprint import pprint
-import math
 
 from copra.rest import APIRequestError, Client
 from dateutil.relativedelta import relativedelta
@@ -11,14 +11,14 @@ from MessageHandler import MessageHandler
 #Dev Key
 KEY = '494ce9a9b403fea4c83f29698132ccd6'
 SECRET = 'xlb2a8gH5avyYrme+MteiNt84VLXbQzua3VUmbt/vrs/qAY5c72qCeIDRFF6Equ2K80W6KYpXccZuCzT9ePzsw=='
-PASSPHRASE = 's89dfh8hHHsdfe45hs''
+PASSPHRASE = 's89dfh8hHHsdfe45hs'
 
 class ActionTaker:
     def __init__(self, loop):
         self.loop = loop
         self.lastPolicy = None
         #self.lastPolicyChangeTime = lastPolicyChangeTime
-        PolicyChangeLockout = relativedelta(minutes = 5)
+        #PolicyChangeLockout = relativedelta(minutes = 5)
         
     def round_down(self, n, decimals=0):
         multiplier = 10 ** decimals
@@ -43,6 +43,7 @@ class ActionTaker:
                 # Place a market order
                 try:
                     order = await client.market_order('buy', 'BTC-USD', funds=usdSize) #size in btc?
+                    print(order)
                 except APIRequestError as e:
                     print(e)
             else:
@@ -70,6 +71,7 @@ class ActionTaker:
                 # Place a market order
                 try:
                     order = await client.market_order('sell', 'BTC-USD', size=btcSize) #size in btc?
+                    print(order)
                 except APIRequestError as e:
                     print(e)
             else:

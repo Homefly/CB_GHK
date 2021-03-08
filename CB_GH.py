@@ -1,15 +1,13 @@
-#Built in
 from datetime import datetime
-
-#3nd Party
-from filterpy.gh import GHFilter
-import copra
-from dateutil.relativedelta import relativedelta
-from dateutil import parser
 from pprint import pprint as pp
 
-#1st Party
+import copra
+from dateutil import parser
+from dateutil.relativedelta import relativedelta
+from filterpy.gh import GHFilter
+
 from CB_Data import CBData
+
 
 class CB_GH(GHFilter):
     #data sampling rates
@@ -51,6 +49,7 @@ class CB_GH(GHFilter):
     
     def primeFil(self, product_id, startDate, g, h):
         #get data
+        print('priming Filter')
         marketData = CBData.getHistD(
             pID = product_id, sT = startDate, eT = str(datetime.utcnow()))
         marketData.set_index('time', inplace = True)
