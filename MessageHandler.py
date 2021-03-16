@@ -6,6 +6,10 @@ from dateutil import parser
 from pprintpp import pprint as pp
 
 
+
+
+
+
 class MessageHandler(Client):
     def __init__(self, loop, newMessageFut=None):
         channel = Channel('ticker', 'BTC-USD')
@@ -49,5 +53,5 @@ if __name__ == "__main__":
     try:
         loop.run_forever()
     except KeyboardInterrupt:
-        loop.run_until_complete(MessageHandler.close())
+        loop.run_until_complete(Saver.close())
         loop.close()

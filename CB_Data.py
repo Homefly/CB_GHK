@@ -71,14 +71,15 @@ class CBData:
         #cls.saveData(candles)
 
         return candles
-    
-    def saveData(candles, filePath = filePath):
+
+    @staticmethod
+    def saveData(candles:pd.DataFrame, filePath = filePath):
         outFile = open(filePath,'wb')
         pickle.dump(candles, outFile)
         outFile.close()
-        #import ipdb; ipdb.set_trace()
         candles.to_csv(filePath + '.csv')
-    
+
+    @staticmethod    
     def cleanData(df):
         #sort data
         df.set_index('time', inplace = True)
@@ -87,9 +88,8 @@ class CBData:
         df['del'] = df['del'].sub(df.index.min())
         df.drop_duplicates()
         
-    def inspectData():
+    def inspectData(self):
         pass
 
 if __name__ == '__main__':
-    t = CBData.getData()
-    #t = CBData.getData()
+    pass
