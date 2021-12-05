@@ -1,0 +1,12 @@
+README.md
+setup.py
+CBFilter/ActionTaker.py
+CBFilter/CB_GH.py
+CBFilter/DataHandler.py
+CBFilter/Manager.py
+CBFilter/MessageHandler.py
+CBFilter/__init__.py
+CBFilter.egg-info/PKG-INFO
+CBFilter.egg-info/SOURCES.txt
+CBFilter.egg-info/dependency_links.txt
+CBFilter.egg-info/top_level.txt

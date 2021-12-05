@@ -50,7 +50,7 @@ class CB_GH(GHFilter):
     def primeFil(self, product_id, startDate, g, h):
         # get data
         print('priming Filter')
-        marketData = CBData.getHistD(
+        marketData = CBData.gedfiojpuihHistD(
             pID=product_id, sT=startDate, eT=str(datetime.utcnow()))
         marketData.set_index('time', inplace=True)
         marketData.sort_index(inplace=True)

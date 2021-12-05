@@ -28,6 +28,7 @@ async def managerLogic(GHFilLast='None'):
         # pp(mesHand.lTick)
         #pp(f"{predX=} {predDX=}")
 
+        # betzising will go here.
         if repr(GHFil) != GHFilLast:
             print(repr(GHFil))
             print(mesHand.lTick['time'])

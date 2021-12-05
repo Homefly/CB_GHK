@@ -6,10 +6,6 @@ from dateutil import parser
 from pprintpp import pprint as pp
 
 
-
-
-
-
 class MessageHandler(Client):
     def __init__(self, loop, newMessageFut=None):
         channel = Channel('ticker', 'BTC-USD')
