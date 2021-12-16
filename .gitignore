@@ -5,5 +5,5 @@ data/
 tests+prototypes/
 .ipynb_checkpoints/
 .vscode/
-
+*.pyc
 *.swp
