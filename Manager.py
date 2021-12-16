@@ -13,12 +13,13 @@ from CB_GH import CB_GH
 from DataHandler import DataHandler
 #from RTPlot import RTPlot
 from ActionTaker import ActionTaker
+from DataHandler import DataHandler
 
 #params:
 pair = 'BTC-USD'
 g = .0005
 h = 4.973799150320701e-08
-startDate = '2021-11-23T23:59:00'
+startDate = '2021-12-15T23:59:00'
 
 
 async def managerLogic(GHFilLast = 'None'):
@@ -28,8 +29,8 @@ async def managerLogic(GHFilLast = 'None'):
         
         #if new data send it to algo
         predX, predDX, policy, algoType = GHFil.run(mesHand.lTick['price'], mesHand.lTick['time'])
-        #pp(mesHand.lTick)
-        #pp(f"{predX=} {predDX=}")
+        pp(mesHand.lTick)
+        pp(f"{predX=} {predDX=}")
         
         if repr(GHFil)!= GHFilLast:
             print(repr(GHFil))
@@ -37,11 +38,11 @@ async def managerLogic(GHFilLast = 'None'):
             GHFilLast = repr(GHFil)
         
         
-        """
+        
         #if new data save data
-        loop.create_task(history.saveData(
+        loop.create_task(DataHandler.saveData(
             mesHand.lTick, algoData={'predX':predX, 'predDX':predDX, 'policy':policy, 'algoType':algoType}))
-        """
+        
         #animate update and measurement
         #rtPlot.updatePlot(history) #TODO: make this grab from CSV
         
