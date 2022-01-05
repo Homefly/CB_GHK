@@ -5,16 +5,16 @@ import matplotlib.pyplot as plt
 from dateutil import parser
 from dateutil.relativedelta import relativedelta
 
-from ActionTaker import ActionTaker
-from CB_GH import CB_GH
-from DataHandler import DataHandler
-from MessageHandler import MessageHandler
+from CBFilter.action import ActionTaker
+from CBFilter.processing import CB_GH
+from CBFilter.data_handler import DataHandler
+from CBFilter.message_handler import MessageHandler
 
 # params:
 pair = 'BTC-USD'
 g = .0005
 h = 4.973799150320701e-08
-startDate = '2021-02-13T23:59:00'
+startDate = '2021-12-31T23:59:00'
 
 
 async def managerLogic(GHFilLast='None'):
@@ -43,7 +43,7 @@ async def managerLogic(GHFilLast='None'):
         # rtPlot.updatePlot(history) #TODO: make this grab from CSV
 
         #buy or sell
-        loop.create_task(actionTaker.run(policy))
+        #loop.create_task(actionTaker.run(policy))
 
 # Main loop
 loop = asyncio.get_event_loop()
@@ -61,7 +61,7 @@ history = DataHandler()
 mesHand = MessageHandler(loop)
 rtPlot = RTPlot()
 """
-actionTaker = ActionTaker(loop)
+#actionTaker = ActionTaker(loop)
 #history = DataHandler(GHFil.algoName)
 mesHand = MessageHandler(loop, pair)
 

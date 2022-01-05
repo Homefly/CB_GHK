@@ -7,7 +7,7 @@ import json
 from copra.rest import APIRequestError, Client, URL, SANDBOX_URL
 from dateutil.relativedelta import relativedelta
 
-from CBFilter import MessageHandler
+from CBFilter.message_handler import MessageHandler
 
 
 class ActionTaker:
