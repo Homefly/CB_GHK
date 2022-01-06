@@ -10,11 +10,13 @@ from processing import CB_GH
 #from data_handler import DataHandler
 from message_handler import MessageHandler
 
-# params:
+# GH Filter params:
 pair = 'BTC-USD'
 g = .0005
 h = 4.973799150320701e-08
-startDate = '2021-12-31T23:59:00'
+
+#start Date for Filter Priming
+startDate = '2022-01-05T23:59:00'
 
 
 async def managerLogic(GHFilLast='None'):
@@ -28,7 +30,7 @@ async def managerLogic(GHFilLast='None'):
         # pp(mesHand.lTick)
         #pp(f"{predX=} {predDX=}")
 
-        # betzising will go here.
+        # bet sizing will go here.
         if repr(GHFil) != GHFilLast:
             print(repr(GHFil))
             print(mesHand.lTick['time'])
