@@ -4,7 +4,7 @@ from backtesting.lib import crossover
 from backtesting.test import SMA, GOOG
 
 #1st party
-from CB_Data import CBData
+from CBFilter.data_handler.CB_Data import CBData
 from CB_GH import CB_GH
 
 #load Coinbase Data

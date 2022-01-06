@@ -9,10 +9,14 @@ import numpy as np
 #from MyDebugTools import rLC
 
 """
+This class: gets historic data from Coinbase
+
+Rate Limits:
 For Public Endpoints, our rate limit is 3 requests per 
 second, up to 6 requests per second in bursts. 
 For Private Endpoints, our rate limit is 5 requests per second, 
 up to 10 requests per second in bursts.
+
 """
 class CBData:
     #Defaults:

@@ -5,10 +5,10 @@ import matplotlib.pyplot as plt
 from dateutil import parser
 from dateutil.relativedelta import relativedelta
 
-from CBFilter.action import ActionTaker
-from CBFilter.processing import CB_GH
-from CBFilter.data_handler import DataHandler
-from CBFilter.message_handler import MessageHandler
+#from action import ActionTaker
+from processing import CB_GH
+#from data_handler import DataHandler
+from message_handler import MessageHandler
 
 # params:
 pair = 'BTC-USD'

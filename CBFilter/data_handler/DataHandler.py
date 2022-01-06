@@ -8,7 +8,8 @@ import asyncio
 from aiofile import async_open
 
 path = './data/'
-
+"""
+saves Data into a pandas DataFrame"""
 
 # TODO: save data in csv that doesn't lock program
 class DataHandler:

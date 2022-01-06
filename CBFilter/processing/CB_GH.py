@@ -6,7 +6,7 @@ from dateutil import parser
 from dateutil.relativedelta import relativedelta
 from filterpy.gh import GHFilter
 
-from CB_Data import CBData
+from data_handler.CB_Data import CBData
 
 
 class CB_GH(GHFilter):
