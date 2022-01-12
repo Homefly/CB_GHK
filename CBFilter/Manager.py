@@ -31,16 +31,12 @@ async def managerLogic(GHFilLast='None'):
         #pp(f"{predX=} {predDX=}")
 
         # bet sizing will go here.
+
         if repr(GHFil) != GHFilLast:
             print(repr(GHFil))
             print(mesHand.lTick['time'])
             GHFilLast = repr(GHFil)
 
-        """
-        #if new data save data
-        loop.create_task(history.saveData(
-            mesHand.lTick, algoData={'predX':predX, 'predDX':predDX, 'policy':policy, 'algoType':algoType}))
-        """
         # animate update and measurement
         # rtPlot.updatePlot(history) #TODO: make this grab from CSV
 
@@ -53,6 +49,8 @@ loop = asyncio.get_event_loop()
 # initialized values
 #filParams = {'x0':55826.934978, 'dx':-0.001478, 'dt':1., 'g':1.e-2, 'h':1.e-4}
 
+
+# Filter Select
 GHFil = CB_GH()
 filParams = GHFil.primeFil(pair, startDate, g, h)
 GHFil = CB_GH(**filParams)
@@ -69,6 +67,12 @@ mesHand = MessageHandler(loop, pair)
 
 # Add manager to the loop
 loop.create_task(managerLogic())
+
+"""
+ #if new data save data
+        loop.create_task(history.saveData(
+            mesHand.lTick, algoData={'predX':predX, 'predDX':predDX, 'policy':policy, 'algoType':algoType}))
+"""
 
 try:
     loop.run_forever()

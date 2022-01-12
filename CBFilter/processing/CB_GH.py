@@ -19,6 +19,7 @@ class CB_GH(GHFilter):
         self.algoName = f'G:{g}_H:{h}'
         self.signal = None
 
+    # Inflection points when detected prompt signal to buy/sell
     def getSignal(self):
         if self.dx > 0.:
             signal = 'long'
