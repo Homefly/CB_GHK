@@ -7,3 +7,4 @@ tests+prototypes/
 .vscode/
 *.pyc
 *.swp
+__pycache__
